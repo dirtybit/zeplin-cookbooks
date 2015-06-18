@@ -3,9 +3,17 @@ node[:deploy].each do |application, deploy|
         interpreter "bash"
         user "root"
         cwd "#{deploy[:deploy_to]}/current"
-        code <<-EOH
-            npm install
-            node ./node_modules/gulp/bin/gulp.js release
-        EOH
+        case node[:opsworks][:stack][:name]
+        when 'zeplin-dev-stack'
+            code <<-EOH
+                npm install
+                NODE_ENV=dev node ./node_modules/gulp/bin/gulp.js release
+            EOH
+        when 'zeplin-prod-stack'
+            code <<-EOH
+                npm install
+                NODE_ENV=prod node ./node_modules/gulp/bin/gulp.js release
+            EOH
+        end
     end
 end
