@@ -4,7 +4,7 @@ node[:deploy].each do |application, deploy|
         user "root"
         cwd deploy[:deploy_to]
         code <<-EOH
-            "npm install"
+            npm install
         EOH
     end
 
@@ -13,7 +13,7 @@ node[:deploy].each do |application, deploy|
         user "root"
         cwd deploy[:deploy_to]
         code <<-EOH
-            "node ./node_modules/gulp/bin/gulp.js release"
+            node ./node_modules/gulp/bin/gulp.js release
         EOH
     end
 end
