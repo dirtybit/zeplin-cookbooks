@@ -4,7 +4,7 @@ node[:deploy].each do |application, deploy|
         next
     end
 
-    script "npm and gulp" do
+    script "run npm tasks" do
         interpreter "bash"
         user "root"
         cwd "#{deploy[:deploy_to]}/current"
@@ -12,12 +12,12 @@ node[:deploy].each do |application, deploy|
         when 'zeplin-dev-stack'
             code <<-EOH
                 npm install
-                NODE_ENV=dev node ./node_modules/gulp/bin/gulp.js release
+                NODE_ENV=dev npm start
             EOH
         when 'zeplin-prod-stack'
             code <<-EOH
                 npm install
-                NODE_ENV=prod node ./node_modules/gulp/bin/gulp.js release
+                NODE_ENV=prod npm start
             EOH
         end
     end
