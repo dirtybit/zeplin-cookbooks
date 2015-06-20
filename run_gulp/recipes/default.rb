@@ -6,13 +6,11 @@ node[:deploy].each do |application, deploy|
         case node[:opsworks][:stack][:name]
         when 'zeplin-dev-stack'
             code <<-EOH
-                npm install
-                NODE_ENV=dev node ./node_modules/gulp/bin/gulp.js release
+                npm install && NODE_ENV=dev node ./node_modules/gulp/bin/gulp.js release
             EOH
         when 'zeplin-prod-stack'
             code <<-EOH
-                npm install
-                NODE_ENV=prod node ./node_modules/gulp/bin/gulp.js release
+                npm install && NODE_ENV=prod node ./node_modules/gulp/bin/gulp.js release
             EOH
         end
     end
