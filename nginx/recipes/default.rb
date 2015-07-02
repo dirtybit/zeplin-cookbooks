@@ -69,3 +69,10 @@ include_recipe "nginx::service"
 service "nginx" do
   action [ :enable, :start ]
 end
+
+#Add HTTP to HTTPS redirect
+template "/tmp/http_to_https" do
+  cwd "/etc/nginx/sites-available"
+  commmand "cat #{application} /tmp/http_redirect.conf > /tmp/#{application}.conf && cat /tmp/#{application}.conf > #{application}"
+  notifies :restart, "service[nginx]", :immediately
+end
