@@ -8,9 +8,9 @@
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
-# 
+#
 #     http://www.apache.org/licenses/LICENSE-2.0
-# 
+#
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -72,7 +72,7 @@ end
 
 #Add HTTP to HTTPS redirect
 template "/tmp/http_to_https" do
-  cwd "/etc/nginx/sites-available"
+  command "cd /etc/nginx/sites-available"
   commmand "cat #{application} /tmp/http_redirect.conf > /tmp/#{application}.conf && cat /tmp/#{application}.conf > #{application}"
   notifies :restart, "service[nginx]", :immediately
 end
