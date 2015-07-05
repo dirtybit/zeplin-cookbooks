@@ -6,9 +6,9 @@ server {
 
   location / {
     if ($http_x_forwarded_proto != 'https') {
-        rewrite ^ https://$host$request_uri? permanent;
+        return 301 https://$host$request_uri;
     }
-    
+
     root   /var/www/nginx-default;
     index  index.html index.htm;
   }
