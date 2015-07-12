@@ -9,16 +9,19 @@ node[:deploy].each do |application, deploy|
         user "root"
         cwd "#{deploy[:deploy_to]}/current"
         case node[:opsworks][:stack][:name]
-        when 'zeplin-dev-stack'
+
+        if node[:opsworks][:stack][:name].start_with?("zeplin-dev")
             code <<-EOH
                 npm install
                 NODE_ENV=dev npm start
             EOH
-        when 'zeplin-prod-stack'
+        elsif node[:opsworks][:stack][:name].start_with?("zeplin-prod")
             code <<-EOH
                 npm install
                 NODE_ENV=prod npm start
             EOH
+        else
+            throw("invalid environment")
         end
     end
 end
