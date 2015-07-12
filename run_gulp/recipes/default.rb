@@ -8,7 +8,6 @@ node[:deploy].each do |application, deploy|
         interpreter "bash"
         user "root"
         cwd "#{deploy[:deploy_to]}/current"
-        case node[:opsworks][:stack][:name]
 
         if node[:opsworks][:stack][:name].start_with?("zeplin-dev")
             code <<-EOH
