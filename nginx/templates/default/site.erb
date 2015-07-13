@@ -29,6 +29,35 @@ server {
     deny all;
   }
 
+  # html and metadata
+  location ~* \.(?:manifest|html|xml|json)$ {
+    expires -1;
+    etag off;
+  }
+
+  # Media: images, icons, video, audio, HTC
+  location ~* \.(?:jpg|jpeg|gif|png|ico|cur|svg)$ {
+    expires 1M;
+    access_log off;
+    add_header Cache-Control "public";
+    etag on;
+  }
+
+  # CSS and Javascript
+  location ~* \.(?:css|js)$ {
+    expires 1d;
+    access_log off;
+    add_header Cache-Control "private";
+    etag on;
+  }
+
+  # WebFonts
+  location ~* \.(?:ttf|ttc|otf|eot|woff|woff2)$ {
+    expires 1M;
+    access_log off;
+    add_header Cache-Control "public";
+    etag on;
+  }
 }
 
 <% if @application[:ssl_support] %>
@@ -57,36 +86,6 @@ server {
   # Block all git access
   if ($request_uri ~* ^.*\.git.*$) {
      return 404;
-  }
-
-  # cache.appcache, your document html and data
-  location ~* \.(?:manifest|html|xml|json)$ {
-    expires -1;
-    etag off;
-  }
-
-  # Media: images, icons, video, audio, HTC
-  location ~* \.(?:jpg|jpeg|gif|png|ico|cur|svg)$ {
-    expires 1M;
-    access_log off;
-    add_header Cache-Control "public";
-    etag on;
-  }
-
-  # CSS and Javascript
-  location ~* \.(?:css|js)$ {
-    expires 1d;
-    access_log off;
-    add_header Cache-Control "private";
-    etag on;
-  }
-
-  # WebFonts
-  location ~* \.(?:ttf|ttc|otf|eot|woff|woff2)$ {
-   expires 1M;
-   access_log off;
-   add_header Cache-Control "public";
-   etag on;
   }
 }
 <% end %>
