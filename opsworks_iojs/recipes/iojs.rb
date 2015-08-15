@@ -1,7 +1,7 @@
 #
 # Author:: Marius Ducea (marius@promethost.com)
 # Cookbook Name:: nodejs
-# Recipe:: default
+# Recipe:: iojs
 #
 # Copyright 2010-2012, Promet Solutions
 #
@@ -18,6 +18,11 @@
 # limitations under the License.
 #
 
+node.default['nodejs']['engine'] = 'iojs'
+
+default['nodejs']['version'] = '3.0.0'
+
+default["nodebin"]["location"] = '/usr/bin/nodejs'
+default["nodebin"]["opsworks_location"] = '/usr/local/bin/node'
+
 include_recipe 'nodejs::install'
-include_recipe 'nodejs::npm'
-include_recipe 'nodejs::npm_packages'

@@ -1,7 +1,7 @@
 #
 # Author:: Marius Ducea (marius@promethost.com)
 # Cookbook Name:: nodejs
-# Recipe:: default
+# Recipe:: npm
 #
 # Copyright 2010-2012, Promet Solutions
 #
@@ -18,6 +18,11 @@
 # limitations under the License.
 #
 
-include_recipe 'nodejs::install'
-include_recipe 'nodejs::npm'
-include_recipe 'nodejs::npm_packages'
+case node['nodejs']['npm']['install_method']
+when 'embedded'
+  include_recipe 'nodejs::install'
+when 'source'
+  include_recipe 'nodejs::npm_from_source'
+else
+  Chef::Log.error('No install method found for npm')
+end
