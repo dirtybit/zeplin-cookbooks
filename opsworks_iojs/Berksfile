@@ -1,5 +1,11 @@
 source 'https://supermarket.chef.io/'
 
+cookbook 'yum-epel'
+cookbook 'build-essential'
+cookbook 'ark'
+cookbook 'apt'
+cookbook 'homebrew'
+
 metadata
 
 group :integration do
