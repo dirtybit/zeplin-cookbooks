@@ -19,6 +19,6 @@ when 'iojs'
     default['nodejs']['keyserver'] = 'keyserver.ubuntu.com'
     default['nodejs']['key']       = '1655a0ab68576280'
   when 'rhel'
-    default['nodejs']['install_repo'] = true
+    default['nodejs']['install_repo'] = nil
   end
 end
