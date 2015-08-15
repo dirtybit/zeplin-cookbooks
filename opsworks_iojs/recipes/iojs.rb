@@ -20,9 +20,9 @@
 
 node.default['nodejs']['engine'] = 'iojs'
 
-default['nodejs']['version'] = '3.0.0'
+node.default['nodejs']['version'] = '3.0.0'
 
-default["nodebin"]["location"] = '/usr/bin/nodejs'
-default["nodebin"]["opsworks_location"] = '/usr/local/bin/node'
+node.default["nodebin"]["location"] = '/usr/bin/nodejs'
+node.default["nodebin"]["opsworks_location"] = '/usr/local/bin/node'
 
 include_recipe 'nodejs::install'

@@ -10,7 +10,6 @@ version '2.4.1'
 
 conflicts 'node'
 
-depends 'yum-epel'
 depends 'build-essential'
 depends 'ark'
 depends 'apt'
