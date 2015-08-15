@@ -1,10 +1,10 @@
-source 'https://supermarket.chef.io/'
+site :opscode
 
-cookbook 'yum-epel', git: 'git@github.com:chef-cookbooks/yum-epel.git'
-cookbook 'build-essential', 'git: git@github.com:opscode-cookbooks/build-essential.git'
-cookbook 'ark', git: 'git://github.com/opscode-cookbooks/ark.git'
-cookbook 'apt', git: 'git@github.com:opscode-cookbooks/apt.git'
-cookbook 'homebrew', git: 'git@github.com:opscode-cookbooks/homebrew.git'
+cookbook 'yum-epel'
+cookbook 'build-essential'
+cookbook 'ark'
+cookbook 'apt'
+cookbook 'homebrew'
 
 metadata
 
