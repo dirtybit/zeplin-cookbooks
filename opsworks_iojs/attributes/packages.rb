@@ -1,5 +1,5 @@
-include_attribute 'nodejs::default'
-include_attribute 'nodejs::repo'
+include_attribute 'opsworks_iojs::default'
+include_attribute 'opsworks_iojs::repo'
 
 case node['nodejs']['engine']
 when 'node'

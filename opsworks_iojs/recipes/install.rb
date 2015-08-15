@@ -18,7 +18,7 @@
 # limitations under the License.
 #
 
-include_recipe "nodejs::nodejs_from_#{node['nodejs']['install_method']}"
+include_recipe "recipes/opsworks_iojs::nodejs_from_#{node['nodejs']['install_method']}"
 
 link '/usr/local/bin/node' do
   to '/usr/bin/node'

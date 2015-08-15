@@ -22,4 +22,4 @@ node.default['nodejs']['install_method'] = 'binary'
 node.default['nodejs']['engine'] = 'iojs'
 node.default['nodejs']['version'] = '3.0.0'
 
-include_recipe 'nodejs::install'
+include_recipe 'opsworks_iojs::default'

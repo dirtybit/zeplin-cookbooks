@@ -20,9 +20,9 @@
 
 case node['nodejs']['npm']['install_method']
 when 'embedded'
-  include_recipe 'nodejs::install'
+  include_recipe 'opsworks_iojs::install'
 when 'source'
-  include_recipe 'nodejs::npm_from_source'
+  include_recipe 'opsworks_iojs::npm_from_source'
 else
   Chef::Log.error('No install method found for npm')
 end

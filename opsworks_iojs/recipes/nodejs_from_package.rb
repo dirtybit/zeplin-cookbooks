@@ -22,7 +22,7 @@
 
 node.force_override['nodejs']['install_method'] = 'package' # ~FC019
 
-include_recipe 'nodejs::repo' if node['nodejs']['install_repo']
+include_recipe 'opsworks_iojs::repo' if node['nodejs']['install_repo']
 
 unless node['nodejs']['packages']
   Chef::Log.error 'No package for nodejs'
