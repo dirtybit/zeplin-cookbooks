@@ -1,4 +1,4 @@
-define :opsworks_nodejs do
+define :opsworks_start_app do
   deploy = params[:deploy_data]
   application = params[:app]
 
@@ -23,7 +23,7 @@ define :opsworks_nodejs do
 
   template "#{node.default[:monit][:conf_dir]}/node_web_app-#{application}.monitrc" do
     source 'node_web_app.monitrc.erb'
-    cookbook 'opsworks_nodejs'
+    cookbook 'opsworks_iojs'
     owner 'root'
     group 'root'
     mode '0644'

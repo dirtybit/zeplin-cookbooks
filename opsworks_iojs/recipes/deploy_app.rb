@@ -19,7 +19,7 @@ node[:deploy].each do |application, deploy|
     app application
   end
 
-  opsworks_nodejs do
+  opsworks_start_app do
     deploy_data deploy
     app application
   end
