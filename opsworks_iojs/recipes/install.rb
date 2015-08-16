@@ -19,15 +19,3 @@
 #
 
 include_recipe "opsworks_iojs::nodejs_from_#{node['nodejs']['install_method']}"
-
-#link '/usr/local/bin/node' do
-#  to '/usr/bin/node'
-#end
-#
-#link '/usr/local/bin/npm' do
-#  to '/usr/bin/npm'
-#end
-#
-#link '/usr/local/bin/iojs' do
-#  to '/usr/bin/iojs'
-#end

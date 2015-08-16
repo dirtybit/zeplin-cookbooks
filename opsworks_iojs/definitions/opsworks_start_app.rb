@@ -7,6 +7,7 @@ define :opsworks_start_app do
   end
 
   node[:dependencies][:npms].each do |npm, version|
+    Chef::Log.info("Install npm module #{npm}")
     execute "/usr/local/bin/npm install #{npm}" do
       cwd "#{deploy[:deploy_to]}/current"
     end
