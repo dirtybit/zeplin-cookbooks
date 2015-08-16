@@ -7,7 +7,6 @@ define :opsworks_start_app do
   end
 
   node[:dependencies][:npms].each do |npm, version|
-    Chef::Log.info("Install npm module #{npm}")
     execute "/usr/local/bin/npm install #{npm}" do
       cwd "#{deploy[:deploy_to]}/current"
     end
@@ -23,8 +22,8 @@ define :opsworks_start_app do
   end
 
   template "#{node.default[:monit][:conf_dir]}/node_web_app-#{application}.monitrc" do
-    source 'node_web_app.monitrc.erb'
     cookbook 'opsworks_iojs'
+    source 'node_web_app.monitrc.erb'
     owner 'root'
     group 'root'
     mode '0644'
