@@ -1,10 +1,10 @@
 include_recipe 'deploy'
 
 node[:deploy].each do |application, deploy|
-  Chef::Log.debug("Trying to deploy application #{application}")
+  Chef::Log.info("Trying to deploy application #{application}")
 
   if application != 'zeplin-preview'
-    Chef::Log.debug("Skipping deploy for application #{application} as it is not zeplin-preview app")
+    Chef::Log.info("Skipping deploy for application #{application} as it is not zeplin-preview app")
     next
   end
 
