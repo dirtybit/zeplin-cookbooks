@@ -1,4 +1,4 @@
-include_recipe 'deploy'
+include_recipe 'deploy::deploy'
 
 node[:deploy].each do |application, deploy|
   if application != 'zeplin-preview'
