@@ -1,0 +1,5 @@
+name        "cairo"
+description "Installs and configures cairo"
+maintainer  "Zeplin, Inc."
+license     "Apache 2.0"
+version     "1.0.0"

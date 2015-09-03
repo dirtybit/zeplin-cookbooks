@@ -1,0 +1,14 @@
+source "https://supermarket.getchef.com"
+
+cookbook 'yum-epel'
+cookbook 'build-essential'
+cookbook 'ark'
+cookbook 'apt'
+cookbook 'homebrew'
+
+metadata
+
+group :integration do
+  cookbook 'apt'
+  cookbook 'nodejs_test', :path => './test/cookbooks/nodejs_test'
+end
