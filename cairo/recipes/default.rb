@@ -18,5 +18,5 @@
 # limitations under the License.
 #
 
-package "cairo"
+package "cairo-devel"
 
