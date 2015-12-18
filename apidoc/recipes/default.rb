@@ -13,6 +13,7 @@ node[:deploy].each do |application, deploy|
             npm install -g grunt-cli
             npm install grunt grunt-apidoc
             grunt
+            chown deploy:apache apidoc
         EOH
     end
 end
