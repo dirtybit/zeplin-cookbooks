@@ -9,10 +9,10 @@ node[:deploy].each do |application, deploy|
         user "root"
         cwd "#{deploy[:deploy_to]}/current"
 
-		code <<-EOH
-			npm install -g grunt-cli
-			npm install grunt grunt-apidoc
-			grunt
-		EOH
+        code <<-EOH
+            npm install -g grunt-cli
+            npm install grunt grunt-apidoc
+            grunt
+        EOH
     end
 end
