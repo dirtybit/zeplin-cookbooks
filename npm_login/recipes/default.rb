@@ -12,7 +12,7 @@ node[:deploy].each do |application, deploy|
             #{deploy[:deploy]['zeplin-backend'][:environment_variables][:NPM_USERNAME]} 
             #{deploy[:deploy]['zeplin-backend'][:environment_variables][:NPM_PASSWORD]} 
             #{deploy[:deploy]['zeplin-backend'][:environment_variables][:NPM_EMAIL]} 
-		    !
+            !
         EOH
     end
 end
