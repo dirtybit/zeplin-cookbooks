@@ -5,4 +5,4 @@ cookbook 'build-essential'
 cookbook 'ark'
 cookbook 'apt'
 cookbook 'homebrew'
-
+cookbook 'mongodb'
