@@ -51,7 +51,7 @@ server {
     etag on;
   }
 
-# Javascript
+  # Javascript
   location ~* \.js$ {
     expires 1y;
     access_log off;
@@ -65,6 +65,12 @@ server {
     access_log off;
     add_header Cache-Control "public";
     etag on;
+  }
+
+  # API reverse-proxy
+  location /api {
+    rewrite ^/api(.*) /$1 break;
+    proxy_pass https://api.omlet.io;
   }
 }
 
