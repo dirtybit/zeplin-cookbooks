@@ -17,6 +17,7 @@ define :nginx_web_app, :template => "site.erb", :enable => true do
       :application => application,
       :application_name => application_name,
       :params => params
+      :environment => OpsWorks::Escape.escape_double_quotes(deploy[:environment_variables])
     )
     if File.exists?("#{node[:nginx][:dir]}/sites-enabled/#{application_name}")
       notifies :reload, "service[nginx]", :delayed

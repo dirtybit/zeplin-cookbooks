@@ -70,7 +70,7 @@ server {
   # API reverse-proxy
   location /api {
     rewrite ^/api(.*) /$1 break;
-    proxy_pass https://<%= ENV['BACKEND_DNS'] %>;
+    proxy_pass https://<%= @environment['BACKEND_DNS'] %>;
   }
 }
 
