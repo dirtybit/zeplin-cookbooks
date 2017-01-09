@@ -16,7 +16,7 @@ define :nginx_web_app, :template => "site.erb", :enable => true do
     variables(
       :application => application,
       :application_name => application_name,
-      :params => params
+      :params => params,
       :environment => OpsWorks::Escape.escape_double_quotes(deploy[:environment_variables])
     )
     if File.exists?("#{node[:nginx][:dir]}/sites-enabled/#{application_name}")
