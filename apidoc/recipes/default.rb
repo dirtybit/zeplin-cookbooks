@@ -11,7 +11,7 @@ node[:deploy].each do |application, deploy|
 
         code <<-EOH
             npm install -g grunt-cli
-            npm install grunt grunt-apidoc
+            npm install grunt github:zeplin/grunt-apidoc
             grunt
             chown #{deploy[:user]}:#{deploy[:group]} apidoc
         EOH
